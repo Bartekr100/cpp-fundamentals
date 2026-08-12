@@ -15,6 +15,9 @@ int NWD(int lhs, int rhs) {
 }
 
 int NWW(int lhs, int rhs) {
-    // TODO: Implement me :)
-    return -1;
+    if (lhs == 0 || rhs == 0) {
+        return 0;
+    }
+    int result = (lhs / NWD(lhs, rhs))*rhs;  // divide first to protect against overflow
+    return (lhs < 0 ^ rhs < 0) ? -result : result;
 }

@@ -18,6 +18,6 @@ int NWW(int lhs, int rhs) {
     if (lhs == 0 || rhs == 0) {
         return 0;
     }
-    int result = (lhs / NWD(lhs, rhs))*rhs;  // divide first to protect against overflow
+    int result = (lhs / NWD(lhs, rhs)) * rhs;  // divide first to protect against overflow
     return (lhs < 0 ^ rhs < 0) ? -result : result;
 }

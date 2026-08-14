@@ -28,3 +28,17 @@ void print(const std::vector<std::shared_ptr<int>>& vec) {
         }
     }
 }
+
+void add10(std::vector<std::shared_ptr<int>>& vec) {
+    if (vec.empty()) {
+        std::cout << "vector is empty" << "\n";
+        return;
+    }
+    for (auto& el : vec) {
+        if (el) {
+            *el += 10;
+        } else {
+            std::cout << "this element not exist" << "\n";
+        }
+    }
+}

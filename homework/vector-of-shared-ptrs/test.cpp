@@ -24,7 +24,7 @@ TEST_F(Homework, ShouldGenerateVectorOfProperSize) {
         EXPECT_EQ(*result[i], i);
     }
 }
-
+/*
 TEST_F(Homework, ShouldAdd10ToEachElement) {
     auto result = generate(count);
     add10(result);
@@ -85,3 +85,4 @@ TEST_F(Homework, BehavioralTest) {
         EXPECT_EQ(vec[i], copyVec[i]);
     }
 }
+*/

@@ -42,3 +42,26 @@ void add10(std::vector<std::shared_ptr<int>>& vec) {
         }
     }
 }
+
+void sub10(int* const ptr) {
+    if (ptr) {
+        *ptr -= 10;
+    } else {
+        std::cout << "pointer is null" << "\n";
+    }
+}
+
+void sub10(std::vector<std::shared_ptr<int>>& vec) {
+    if (vec.empty()) {
+        std::cout << "vector is empty" << "\n";
+        return;
+    }
+
+    for (auto& el : vec) {
+        if (el) {
+            sub10(el.get());
+        } else {
+            std::cout << "this element not exist" << "\n";
+        }
+    }
+}

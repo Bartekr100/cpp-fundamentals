@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <cctype>
 
-std::string getErrorMessage(const ErrorCode code) {
+std::string_view getErrorMessage(const ErrorCode code) {
     switch (code) {
     case ErrorCode::Ok:
         return "Ok";
@@ -27,11 +27,11 @@ std::string getErrorMessage(const ErrorCode code) {
     }
 }
 
-bool doPasswordsMatch(const std::string& input_pass, const std::string& reference_pass) {
+bool doPasswordsMatch(const std::string_view& input_pass, const std::string_view& reference_pass) {
     return input_pass == reference_pass;
 }
 
-ErrorCode checkPasswordRules(const std::string& password) {
+ErrorCode checkPasswordRules(const std::string_view& password) {
     if (password.size() < 9) {
         return ErrorCode::PasswordNeedsAtLeastNineCharacters;
     }
@@ -48,7 +48,7 @@ ErrorCode checkPasswordRules(const std::string& password) {
     return ErrorCode::Ok;
 }
 
-ErrorCode checkPassword(const std::string& password, const std::string& repeatedPassword) {
+ErrorCode checkPassword(const std::string_view& password, const std::string_view& repeatedPassword) {
     if (!doPasswordsMatch(password, repeatedPassword)) {
         return ErrorCode::PasswordsDoNotMatch;
     }

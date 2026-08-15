@@ -1,6 +1,6 @@
 #pragma once
 #include <cstdint>
-#include <string>
+#include <string_view>
 
 enum class ErrorCode : uint8_t {
     Ok,
@@ -11,9 +11,9 @@ enum class ErrorCode : uint8_t {
     PasswordsDoNotMatch
 };
 
-std::string getErrorMessage(const ErrorCode code);
-bool doPasswordsMatch(const std::string& input_pass, const std::string& reference_pass);
+[[nodiscard]] std::string_view getErrorMessage(const ErrorCode code);
+[[nodiscard]] bool doPasswordsMatch(const std::string_view& input_pass, const std::string_view& reference_pass);
 
-ErrorCode checkPasswordRules(const std::string& password);
+[[nodiscard]] ErrorCode checkPasswordRules(const std::string_view& password);
 
-ErrorCode checkPassword(const std::string& password, const std::string& repeatedPassword);
+[[nodiscard]] ErrorCode checkPassword(const std::string_view& password, const std::string_view& repeatedPassword);

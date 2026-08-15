@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
+#include <cstdint>
 
-enum class ErrorCode{
+enum class ErrorCode : uint8_t {
     Ok,
     PasswordNeedsAtLeastNineCharacters,
     PasswordNeedsAtLeastOneNumber,

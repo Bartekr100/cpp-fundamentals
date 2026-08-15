@@ -34,7 +34,15 @@ ErrorCode checkPasswordRules(const std::string& password) {
     if (password.size() < 9) {
         return ErrorCode::PasswordNeedsAtLeastNineCharacters;
     }
-     if (std::none_of(password.begin(), password.end(), [](const unsigned char c) { return std::isdigit(c); })) {
+    if (std::none_of(password.begin(), password.end(), [](const unsigned char c) { return std::isdigit(c); })) {
         return ErrorCode::PasswordNeedsAtLeastOneNumber;
     }
+    return ErrorCode::Ok;
+}
+
+ErrorCode checkPassword(const std::string& password, const std::string& repeatedPassword) {
+    if (!doPasswordsMatch(password, repeatedPassword)) {
+        return ErrorCode::PasswordsDoNotMatch;
+    }
+    return checkPasswordRules(password);
 }

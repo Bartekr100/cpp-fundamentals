@@ -38,6 +38,9 @@ ErrorCode checkPasswordRules(const std::string& password) {
     if (std::none_of(password.begin(), password.end(), [](const unsigned char c) { return std::isdigit(c); })) {
         return ErrorCode::PasswordNeedsAtLeastOneNumber;
     }
+    if (std::none_of(password.begin(), password.end(), [](const unsigned char c) { return std::isupper(c); })) {
+        return ErrorCode::PasswordNeedsAtLeastOneUppercaseLetter;
+    }
     return ErrorCode::Ok;
 }
 

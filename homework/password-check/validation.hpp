@@ -12,3 +12,4 @@ enum class ErrorCode : uint8_t {
 };
 
 std::string getErrorMessage(const ErrorCode code);
+bool doPasswordsMatch(const std::string& input_pass, const std::string& reference_pass);

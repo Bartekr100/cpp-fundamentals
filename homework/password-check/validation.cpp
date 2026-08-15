@@ -23,3 +23,7 @@ std::string getErrorMessage(const ErrorCode code) {
         return "Unknown Message";
     }
 }
+
+bool doPasswordsMatch(const std::string& input_pass, const std::string& reference_pass) {
+    return input_pass == reference_pass;
+}

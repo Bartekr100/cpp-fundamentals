@@ -41,6 +41,10 @@ ErrorCode checkPasswordRules(const std::string& password) {
     if (std::none_of(password.begin(), password.end(), [](const unsigned char c) { return std::isupper(c); })) {
         return ErrorCode::PasswordNeedsAtLeastOneUppercaseLetter;
     }
+    if (std::none_of(password.begin(), password.end(), [](const unsigned char c) { return std::ispunct(c); })) {
+        return ErrorCode::PasswordNeedsAtLeastOneSpecialCharacter;
+    }
+
     return ErrorCode::Ok;
 }
 
